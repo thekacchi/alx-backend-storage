@@ -14,9 +14,15 @@ BEGIN
     WHERE user_id = user_id;
 
     -- Update the average score for the user
-    UPDATE users
-    SET average_score = IF(total_count > 0, total_score / total_count, 0)
-    WHERE id = user_id;
+    IF total_count > 0 THEN
+        UPDATE users
+        SET average_score = total_score / total_count
+        WHERE id = user_id;
+    ELSE
+        UPDATE users
+        SET average_score = 0
+        WHERE id = user_id;
+    END IF;
 END;
 //
 
