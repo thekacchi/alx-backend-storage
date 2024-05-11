@@ -1,5 +1,7 @@
 -- script that creates a trigger
--- that decreases the quantity of an item after adding a new order.iDELIMITER //
+-- that decreases the quantity of an item after adding a new order
+
+DELIMITER //
 
 CREATE TRIGGER update_quantity AFTER INSERT ON orders
 FOR EACH ROW
